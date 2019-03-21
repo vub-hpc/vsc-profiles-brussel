@@ -5,35 +5,38 @@ if [ -z $VSC_INSTITUTE_CLUSTER ]; then
     export VSC_INSTITUTE_CLUSTER=hydra
 fi
 
-export VSC_ARCH_LOCAL=''
-export VSC_ARCH_SUFFIX=''
-
-if grep -q 'Processor.2378' /proc/cpuinfo
-  then
-  export VSC_ARCH_LOCAL=shanghai
-  export VSC_ARCH_SUFFIX=-ib
-elif grep -q 'Processor.6134' /proc/cpuinfo
-  then 
-  export VSC_ARCH_LOCAL=magnycours
-  export VSC_ARCH_SUFFIX=-ib
-elif grep -q 'Processor.6274' /proc/cpuinfo
-  then
-  export VSC_ARCH_LOCAL=interlagos
-  export VSC_ARCH_SUFFIX=-ib
-elif grep -q 'CPU.E5-2680.v2' /proc/cpuinfo
-  then
-  export VSC_ARCH_LOCAL=ivybridge
-  export VSC_ARCH_SUFFIX=-ib
-elif grep -q 'CPU.E5-[0-9]\+.v3' /proc/cpuinfo
-  then
-  export VSC_ARCH_LOCAL=haswell
-  export VSC_ARCH_SUFFIX=-ib
-elif grep -q 'CPU.E[57]-[0-9]\+.v4' /proc/cpuinfo
-  then
-  export VSC_ARCH_LOCAL=broadwell
-elif grep -q 'Gold \(6148\|6126\)' /proc/cpuinfo
-  then
-  export VSC_ARCH_LOCAL=skylake
+if [ -z $VSC_ARCH_LOCAL ]; then
+    if grep -q 'Processor.2378' /proc/cpuinfo
+      then
+      export VSC_ARCH_LOCAL=shanghai
+      export VSC_ARCH_SUFFIX=-ib
+    elif grep -q 'Processor.6134' /proc/cpuinfo
+      then
+      export VSC_ARCH_LOCAL=magnycours
+      export VSC_ARCH_SUFFIX=-ib
+    elif grep -q 'Processor.6274' /proc/cpuinfo
+      then
+      export VSC_ARCH_LOCAL=interlagos
+      export VSC_ARCH_SUFFIX=-ib
+    elif grep -q 'CPU.E5-2680.v2' /proc/cpuinfo
+      then
+      export VSC_ARCH_LOCAL=ivybridge
+      export VSC_ARCH_SUFFIX=-ib
+    elif grep -q 'CPU.E5-[0-9]\+.v3' /proc/cpuinfo
+      then
+      export VSC_ARCH_LOCAL=haswell
+      export VSC_ARCH_SUFFIX=-ib
+    elif grep -q 'CPU.E[57]-[0-9]\+.v4' /proc/cpuinfo
+      then
+      export VSC_ARCH_LOCAL=broadwell
+    elif grep -q 'Gold \(6148\|6126\)' /proc/cpuinfo
+      then
+      export VSC_ARCH_LOCAL=skylake
+    else
+      then
+      export VSC_ARCH_LOCAL=''
+      export VSC_ARCH_SUFFIX=''
+    fi
 fi
 
 export LMOD_SYSTEM_NAME="${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}"
