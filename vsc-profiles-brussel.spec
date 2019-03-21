@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.0
+Version: 1.1
 Release: 1
 License: GPL
 Group: Applications/System
@@ -23,8 +23,8 @@ install vscautokey.sh $RPM_BUILD_ROOT/etc/profile.d/
 install vscautokey.csh $RPM_BUILD_ROOT/etc/profile.d/
 install netid.sh $RPM_BUILD_ROOT/etc/profile.d/
 install netid.csh $RPM_BUILD_ROOT/etc/profile.d/
-install modulepaths.sh $RPM_BUILD_ROOT/etc/profile.d/
-install modulepaths.csh $RPM_BUILD_ROOT/etc/profile.d/
+install modulepaths-sh $RPM_BUILD_ROOT/etc/profile.d/
+install modulepaths-csh $RPM_BUILD_ROOT/etc/profile.d/
 install commercial_modules $RPM_BUILD_ROOT/etc/
 
 %clean
@@ -38,8 +38,8 @@ rm -rf %{buildroot}
 /etc/profile.d/vscautokey.csh
 /etc/profile.d/netid.sh
 /etc/profile.d/netid.csh
-/etc/profile.d/modulepaths.sh
-/etc/profile.d/modulepaths.csh
+/etc/profile.d/modulepaths-sh
+/etc/profile.d/modulepaths-csh
 /etc/commercial_modules
 
 
