@@ -28,7 +28,7 @@ if ( ${myid} >= ${minuid} ) then
     setenv VSC_SCRATCH_SITE ${VSC_SCRATCH}
     setenv WORKDIR ${VSC_SCRATCH}
 
-    source /etc/profile.d/modulepath-csh
+    source /etc/profile.d/modulepaths-csh
 
 endif
 

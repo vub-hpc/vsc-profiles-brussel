@@ -22,5 +22,5 @@ if [ "$(id -u)" -ge "2500000" ]; then
     export VSC_SCRATCH_SITE=$VSC_SCRATCH
     export WORKDIR=$VSC_SCRATCH
 
-    source /etc/profile.d/modulepath-sh
+    source /etc/profile.d/modulepaths-sh
 fi

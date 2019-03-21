@@ -30,5 +30,5 @@ if id -nGz | grep -qFxz netidall ; then
         fi
     fi
 
-    source /etc/profile.d/modulepath-sh
+    source /etc/profile.d/modulepaths-sh
 fi
