@@ -29,4 +29,6 @@ if id -nGz | grep -qFxz netidall ; then
             chmod go-rwx $WORKDIR
         fi
     fi
+
+    source /etc/profile.d/modulepath-sh
 fi

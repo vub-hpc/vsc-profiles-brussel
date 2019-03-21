@@ -35,6 +35,8 @@ if ( ${netid} == 1 ) then
             endif
     endif
 
+    source /etc/profile.d/modulepath-csh
+
 endif
 
 unset netid
