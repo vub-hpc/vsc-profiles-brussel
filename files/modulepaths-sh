@@ -33,7 +33,6 @@ if [ -z $VSC_ARCH_LOCAL ]; then
       then
       export VSC_ARCH_LOCAL=skylake
     else
-      then
       export VSC_ARCH_LOCAL=''
       export VSC_ARCH_SUFFIX=''
     fi

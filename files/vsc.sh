@@ -13,7 +13,7 @@ if [ "$(id -u)" -ge "2500000" ]; then
             if [ $? -ne 0 ]; then
                 echo "Error: failed to initiate your scratch directory. Please report the problem at hpc@vub.ac.be or hpc@ulb.ac.be"
             else
-                chmod go-rwx $WORKDIR
+                chmod go-rwx $VSC_SCRATCH
             fi
         fi
     fi
