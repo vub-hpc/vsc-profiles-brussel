@@ -3,7 +3,8 @@ set myid=`id -u`
 
 if ( ${myid} >= ${minuid} ) then
 
-    eval `/usr/bin/vsc_env csh`
+    # workaround until vsc-config is fixed
+    eval `/usr/bin/vsc_env csh | tr '\n' ';'`
 
     if ( "$USER" =~ vsc1* ) then
         setenv VSC_SCRATCH `echo ${HOME} | sed "s:user:scratch:"`
