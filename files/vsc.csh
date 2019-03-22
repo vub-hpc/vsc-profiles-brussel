@@ -23,7 +23,6 @@ if ( ${myid} >= ${minuid} ) then
     endif
 
     setenv VSC_SCRATCH_NODE /tmp/${USER}
-    setenv VSC_SCRATCH /work/${USER}
 
     setenv VSC_SCRATCH_CLUSTER ${VSC_SCRATCH}
     setenv VSC_SCRATCH_SITE ${VSC_SCRATCH}
