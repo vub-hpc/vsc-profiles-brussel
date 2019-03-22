@@ -65,3 +65,5 @@ unset line
 unset gro
 unset mod
 unset HYDRA_EB_ALL
+
+# vim: set ft=csh:

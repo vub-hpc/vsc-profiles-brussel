@@ -58,3 +58,5 @@ do
 done </etc/commercial_modules
 
 export MODULEPATH
+
+# vim: set ft=sh:
