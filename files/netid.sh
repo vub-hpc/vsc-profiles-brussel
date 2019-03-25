@@ -21,6 +21,7 @@ if id -nGz | grep -qFxz netidall ; then
 
     export WORKDIR=/work/${USER}
     export VSC_SCRATCH=$WORKDIR
+    export VSC_HOME=$HOME
 
     if [ ! -d $WORKDIR ]; then
         mkdir $WORKDIR &> /dev/null

@@ -26,6 +26,7 @@ if ( ${netid} == 1 ) then
 
     setenv WORKDIR /work/${USER}
     setenv VSC_SCRATCH ${WORKDIR}
+    setenv VSC_HOME ${HOME}
 
     if (! -d $WORKDIR) then
             mkdir $WORKDIR >& /dev/null

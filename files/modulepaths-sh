@@ -29,9 +29,11 @@ if [ -z $VSC_ARCH_LOCAL ]; then
     elif grep -q 'CPU.E[57]-[0-9]\+.v4' /proc/cpuinfo
       then
       export VSC_ARCH_LOCAL=broadwell
+      export VSC_ARCH_SUFFIX=''
     elif grep -q 'Gold \(6148\|6126\)' /proc/cpuinfo
       then
       export VSC_ARCH_LOCAL=skylake
+      export VSC_ARCH_SUFFIX=''
     else
       export VSC_ARCH_LOCAL=''
       export VSC_ARCH_SUFFIX=''
