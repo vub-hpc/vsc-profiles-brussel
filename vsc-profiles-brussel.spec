@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.4
+Version: 1.5
 Release: 1
 License: GPL
 Group: Applications/System
@@ -44,5 +44,7 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Jul 04 2019 Ward Poelmans <ward.poelmans@vub.be>
+- Drop creating of TMPDIR directories of netid.
 * Mon Mar 18 2019 Ward Poelmans <ward.poelmans@ugent.be>
 - First version (spec file taken from Gent)
