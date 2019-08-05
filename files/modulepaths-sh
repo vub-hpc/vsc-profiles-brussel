@@ -42,12 +42,13 @@ fi
 
 export LMOD_SYSTEM_NAME="${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}"
 
+HYDRA_MODULEPATH=
 for i in {2014..2020}; do
   if [ -d /apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules/${i}a/all ]; then
-    MODULEPATH=/apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules/${i}a/all:$MODULEPATH
+    HYDRA_MODULEPATH=/apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules/${i}a/all:$HYDRA_MODULEPATH
   fi
   if [ -d /apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules/${i}b/all ]; then
-    MODULEPATH=/apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules/${i}b/all:$MODULEPATH
+    HYDRA_MODULEPATH=/apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules/${i}b/all:$HYDRA_MODULEPATH
   fi
 done
 
@@ -55,10 +56,12 @@ done
 while read -r gro mod
 do
   if [ `id |grep -c $gro` == '1' ]; then
-      MODULEPATH=$MODULEPATH:$mod
+      HYDRA_MODULEPATH=$HYDRA_MODULEPATH:$mod
   fi
 done </etc/commercial_modules
 
-export MODULEPATH
+export MODULEPATH=$HYDRA_MODULEPATH
+
+unset HYDRA_MODULEPATH
 
 # vim: set ft=sh:
