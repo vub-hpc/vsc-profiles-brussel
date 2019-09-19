@@ -57,6 +57,10 @@ foreach line ( "`cat /etc/commercial_modules`" )
   endif
 end
 
+if ( -d /etc/modulefiles/vsc ) then
+    setenv HYDRA_MODULEPATH ${HYDRA_MODULEPATH}:/etc/modulefiles/vsc
+endif
+
 setenv MODULEPATH ${HYDRA_MODULEPATH}
 
 setenv LMOD_SYSTEM_NAME "${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX}"
