@@ -60,6 +60,10 @@ do
   fi
 done </etc/commercial_modules
 
+if [ -d /etc/modulefiles/vsc ]; then
+    HYDRA_MODULEPATH=$HYDRA_MODULEPATH:/etc/modulefiles/vsc
+fi
+
 export MODULEPATH=$HYDRA_MODULEPATH
 
 unset HYDRA_MODULEPATH

@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.6
+Version: 1.7
 Release: 1
 License: GPL
 Group: Applications/System
@@ -44,6 +44,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Sep 19 2019 Ward Poelmans <ward.poelmans@vub.be>
+- Add /etc/modulefiles/vsc to MODULEPATH if it exists
 * Mon Aug 05 2019 Ward Poelmans <ward.poelmans@vub.be>
 - Fix MODULEPATH: set it only once
 * Thu Jul 04 2019 Ward Poelmans <ward.poelmans@vub.be>
