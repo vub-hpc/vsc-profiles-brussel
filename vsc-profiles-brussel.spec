@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.7
+Version: 1.8
 Release: 1
 License: GPL
 Group: Applications/System
@@ -44,6 +44,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Nov 28 2019 Ward Poelmans <ward.poelmans@vub.be>
+- Drop creating the workdir on login, it's done by vsc-netid-administration
 * Thu Sep 19 2019 Ward Poelmans <ward.poelmans@vub.be>
 - Add /etc/modulefiles/vsc to MODULEPATH if it exists
 * Mon Aug 05 2019 Ward Poelmans <ward.poelmans@vub.be>
