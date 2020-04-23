@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.8
+Version: 1.9
 Release: 1
 License: GPL
 Group: Applications/System
