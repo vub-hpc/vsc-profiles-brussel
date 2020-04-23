@@ -10,27 +10,27 @@ if [ -z $VSC_ARCH_LOCAL ]; then
       then
       export VSC_ARCH_LOCAL=shanghai
       export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'Processor.6134' /proc/cpuinfo
+    elif grep -q 'Processor.61[0-9][0-9]' /proc/cpuinfo
       then
       export VSC_ARCH_LOCAL=magnycours
       export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'Processor.6274' /proc/cpuinfo
+    elif grep -q 'Processor.62[0-9][0-9]' /proc/cpuinfo
       then
       export VSC_ARCH_LOCAL=interlagos
       export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'CPU.E5-2680.v2' /proc/cpuinfo
+    elif grep -q 'CPU.E[0-9]\+-[0-9]\+L\?.v2' /proc/cpuinfo
       then
       export VSC_ARCH_LOCAL=ivybridge
       export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'CPU.E5-[0-9]\+.v3' /proc/cpuinfo
+    elif grep -q 'CPU.E[0-9]\+-[0-9]\+L\?.v3' /proc/cpuinfo
       then
       export VSC_ARCH_LOCAL=haswell
       export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'CPU.E[57]-[0-9]\+.v4' /proc/cpuinfo
+    elif grep -q 'CPU.E[0-9]\+-[0-9]\+L\?.v4' /proc/cpuinfo
       then
       export VSC_ARCH_LOCAL=broadwell
       export VSC_ARCH_SUFFIX=''
-    elif grep -q 'Gold \(6148\|6126\)' /proc/cpuinfo
+    elif grep -q 'Gold [56]1[0-9][0-9]' /proc/cpuinfo
       then
       export VSC_ARCH_LOCAL=skylake
       export VSC_ARCH_SUFFIX=''
@@ -43,7 +43,7 @@ fi
 export LMOD_SYSTEM_NAME="${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}"
 
 HYDRA_MODULEPATH=
-for i in {2014..2020}; do
+for i in {2014..2025}; do
   if [ -d /apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules/${i}a/all ]; then
     HYDRA_MODULEPATH=/apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules/${i}a/all:$HYDRA_MODULEPATH
   fi
