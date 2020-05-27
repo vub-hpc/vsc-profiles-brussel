@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.9
+Version: 1.10
 Release: 1
 License: GPL
 Group: Applications/System
@@ -44,6 +44,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed May 27 2020 Ward Poelmans <ward.poelmans@vub.be>
+- Generate rsa keys instead of dsa
 * Thu Nov 28 2019 Ward Poelmans <ward.poelmans@vub.be>
 - Drop creating the workdir on login, it's done by vsc-netid-administration
 * Thu Sep 19 2019 Ward Poelmans <ward.poelmans@vub.be>
