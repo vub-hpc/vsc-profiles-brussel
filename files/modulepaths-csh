@@ -1,7 +1,3 @@
-if (! $?VSC_INSTITUTE_CLUSTER) then
-setenv VSC_INSTITUTE_CLUSTER hydra
-endif
-
 if (! $?VSC_OS_LOCAL) then
 setenv VSC_OS_LOCAL CO7
 endif

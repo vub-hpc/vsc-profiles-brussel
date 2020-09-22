@@ -1,9 +1,6 @@
 if [ -z $VSC_OS_LOCAL ]; then
     export VSC_OS_LOCAL=CO7
 fi
-if [ -z $VSC_INSTITUTE_CLUSTER ]; then
-    export VSC_INSTITUTE_CLUSTER=hydra
-fi
 
 if [ -z $VSC_ARCH_LOCAL ]; then
     if grep -q 'Processor.2378' /proc/cpuinfo
