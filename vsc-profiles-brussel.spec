@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.10
+Version: 1.20
 Release: 1
 License: GPL
 Group: Applications/System
@@ -25,7 +25,6 @@ install -m 644 netid.sh $RPM_BUILD_ROOT/etc/profile.d/
 install -m 644 netid.csh $RPM_BUILD_ROOT/etc/profile.d/
 install -m 644 modulepaths-sh $RPM_BUILD_ROOT/etc/profile.d/
 install -m 644 modulepaths-csh $RPM_BUILD_ROOT/etc/profile.d/
-install -m 644 commercial_modules $RPM_BUILD_ROOT/etc/
 
 %clean
 rm -rf %{buildroot}
@@ -40,10 +39,11 @@ rm -rf %{buildroot}
 /etc/profile.d/netid.csh
 /etc/profile.d/modulepaths-sh
 /etc/profile.d/modulepaths-csh
-/etc/commercial_modules
 
 
 %changelog
+* Tue Sep 22 2020 Ward Poelmans <ward.poelmans@vub.be>
+- Cleanup for new vsc-config and deprecating NetID, part 1
 * Wed May 27 2020 Ward Poelmans <ward.poelmans@vub.be>
 - Generate rsa keys instead of dsa
 * Thu Nov 28 2019 Ward Poelmans <ward.poelmans@vub.be>
