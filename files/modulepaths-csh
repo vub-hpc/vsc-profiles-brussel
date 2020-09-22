@@ -22,10 +22,11 @@ if (! $?VSC_ARCH_LOCAL) then
     endif
 endif
 
+setenv LMOD_SYSTEM_NAME "${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX}"
+
 setenv HYDRA_MODULEPATH ""
-set i = 2014
-while ($i < 2021)
-#for i in {2014..2020}; do
+set i = 2016
+while ($i < 2025)
   if ( -d  /apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX}/modules/${i}a/all ) then
     setenv HYDRA_MODULEPATH /apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX}/modules/${i}a/all:${HYDRA_MODULEPATH}
   endif
