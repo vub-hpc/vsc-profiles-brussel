@@ -49,19 +49,7 @@ for i in {2014..2025}; do
   fi
 done
 
-#Append commercial modules if user belongs to the group
-while read -r gro mod
-do
-  if [ `id |grep -c $gro` == '1' ]; then
-      HYDRA_MODULEPATH=$HYDRA_MODULEPATH:$mod
-  fi
-done </etc/commercial_modules
-
-if [ -d /etc/modulefiles/vsc ]; then
-    HYDRA_MODULEPATH=$HYDRA_MODULEPATH:/etc/modulefiles/vsc
-fi
-
-export MODULEPATH=$HYDRA_MODULEPATH
+export MODULEPATH=$HYDRA_MODULEPATH:/etc/modulefiles/vsc
 
 unset HYDRA_MODULEPATH
 

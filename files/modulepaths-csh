@@ -44,26 +44,7 @@ while ($i < 2021)
   @ i++
 end
 
-#Append commercial modules if user belongs to the group
-foreach line ( "`cat /etc/commercial_modules`" )
-  set gro = `echo $line | awk '{print $1}'`
-  set mod = `echo $line | awk '{print $2}'`
-  if ( `id |grep -c $gro` == 1 ) then
-   setenv HYDRA_MODULEPATH ${HYDRA_MODULEPATH}:${mod}
-  endif
-end
-
-if ( -d /etc/modulefiles/vsc ) then
-    setenv HYDRA_MODULEPATH ${HYDRA_MODULEPATH}:/etc/modulefiles/vsc
-endif
-
-setenv MODULEPATH ${HYDRA_MODULEPATH}
-
-setenv LMOD_SYSTEM_NAME "${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX}"
-
-unset line
-unset gro
-unset mod
+setenv MODULEPATH ${HYDRA_MODULEPATH}:/etc/modulefiles/vsc
 unset HYDRA_MODULEPATH
 
 # vim: set ft=csh:
