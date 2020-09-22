@@ -4,16 +4,7 @@ endif
 
 if (! $?VSC_ARCH_LOCAL) then
 
-    if ( { grep -q 'Processor.2378' /proc/cpuinfo } ) then
-      setenv VSC_ARCH_LOCAL shanghai
-      setenv VSC_ARCH_SUFFIX -ib
-    else if ( { grep -q 'Processor.6134' /proc/cpuinfo } ) then
-      setenv VSC_ARCH_LOCAL magnycours
-      setenv VSC_ARCH_SUFFIX -ib
-    else if ( { grep -q 'Processor.6274' /proc/cpuinfo } ) then
-      setenv VSC_ARCH_LOCAL interlagos
-      setenv VSC_ARCH_SUFFIX -ib
-    else if ( { grep -q 'CPU.E5-2680.v2' /proc/cpuinfo } ) then
+    if ( { grep -q 'CPU.E5-2680.v2' /proc/cpuinfo } ) then
       setenv VSC_ARCH_LOCAL ivybridge
       setenv VSC_ARCH_SUFFIX -ib
     else if ( { grep -q 'CPU.E5-[0-9]\+.v3' /proc/cpuinfo } ) then

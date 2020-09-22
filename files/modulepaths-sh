@@ -3,19 +3,7 @@ if [ -z $VSC_OS_LOCAL ]; then
 fi
 
 if [ -z $VSC_ARCH_LOCAL ]; then
-    if grep -q 'Processor.2378' /proc/cpuinfo
-      then
-      export VSC_ARCH_LOCAL=shanghai
-      export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'Processor.61[0-9][0-9]' /proc/cpuinfo
-      then
-      export VSC_ARCH_LOCAL=magnycours
-      export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'Processor.62[0-9][0-9]' /proc/cpuinfo
-      then
-      export VSC_ARCH_LOCAL=interlagos
-      export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'CPU.E[0-9]\+-[0-9]\+L\?.v2' /proc/cpuinfo
+    if grep -q 'CPU.E[0-9]\+-[0-9]\+L\?.v2' /proc/cpuinfo
       then
       export VSC_ARCH_LOCAL=ivybridge
       export VSC_ARCH_SUFFIX=-ib
