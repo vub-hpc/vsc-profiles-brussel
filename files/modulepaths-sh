@@ -1,24 +1,9 @@
 if [ -z $VSC_OS_LOCAL ]; then
     export VSC_OS_LOCAL=CO7
 fi
-if [ -z $VSC_INSTITUTE_CLUSTER ]; then
-    export VSC_INSTITUTE_CLUSTER=hydra
-fi
 
 if [ -z $VSC_ARCH_LOCAL ]; then
-    if grep -q 'Processor.2378' /proc/cpuinfo
-      then
-      export VSC_ARCH_LOCAL=shanghai
-      export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'Processor.61[0-9][0-9]' /proc/cpuinfo
-      then
-      export VSC_ARCH_LOCAL=magnycours
-      export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'Processor.62[0-9][0-9]' /proc/cpuinfo
-      then
-      export VSC_ARCH_LOCAL=interlagos
-      export VSC_ARCH_SUFFIX=-ib
-    elif grep -q 'CPU.E[0-9]\+-[0-9]\+L\?.v2' /proc/cpuinfo
+    if grep -q 'CPU.E[0-9]\+-[0-9]\+L\?.v2' /proc/cpuinfo
       then
       export VSC_ARCH_LOCAL=ivybridge
       export VSC_ARCH_SUFFIX=-ib
@@ -43,7 +28,7 @@ fi
 export LMOD_SYSTEM_NAME="${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}"
 
 HYDRA_MODULEPATH=
-for i in {2014..2025}; do
+for i in {2016..2025}; do
   if [ -d /apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules/${i}a/all ]; then
     HYDRA_MODULEPATH=/apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules/${i}a/all:$HYDRA_MODULEPATH
   fi
@@ -52,19 +37,7 @@ for i in {2014..2025}; do
   fi
 done
 
-#Append commercial modules if user belongs to the group
-while read -r gro mod
-do
-  if [ `id |grep -c $gro` == '1' ]; then
-      HYDRA_MODULEPATH=$HYDRA_MODULEPATH:$mod
-  fi
-done </etc/commercial_modules
-
-if [ -d /etc/modulefiles/vsc ]; then
-    HYDRA_MODULEPATH=$HYDRA_MODULEPATH:/etc/modulefiles/vsc
-fi
-
-export MODULEPATH=$HYDRA_MODULEPATH
+export MODULEPATH=$HYDRA_MODULEPATH:/etc/modulefiles/vsc
 
 unset HYDRA_MODULEPATH
 

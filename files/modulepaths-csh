@@ -1,23 +1,10 @@
-if (! $?VSC_INSTITUTE_CLUSTER) then
-setenv VSC_INSTITUTE_CLUSTER hydra
-endif
-
 if (! $?VSC_OS_LOCAL) then
 setenv VSC_OS_LOCAL CO7
 endif
 
 if (! $?VSC_ARCH_LOCAL) then
 
-    if ( { grep -q 'Processor.2378' /proc/cpuinfo } ) then
-      setenv VSC_ARCH_LOCAL shanghai
-      setenv VSC_ARCH_SUFFIX -ib
-    else if ( { grep -q 'Processor.6134' /proc/cpuinfo } ) then
-      setenv VSC_ARCH_LOCAL magnycours
-      setenv VSC_ARCH_SUFFIX -ib
-    else if ( { grep -q 'Processor.6274' /proc/cpuinfo } ) then
-      setenv VSC_ARCH_LOCAL interlagos
-      setenv VSC_ARCH_SUFFIX -ib
-    else if ( { grep -q 'CPU.E5-2680.v2' /proc/cpuinfo } ) then
+    if ( { grep -q 'CPU.E5-2680.v2' /proc/cpuinfo } ) then
       setenv VSC_ARCH_LOCAL ivybridge
       setenv VSC_ARCH_SUFFIX -ib
     else if ( { grep -q 'CPU.E5-[0-9]\+.v3' /proc/cpuinfo } ) then
@@ -35,10 +22,11 @@ if (! $?VSC_ARCH_LOCAL) then
     endif
 endif
 
+setenv LMOD_SYSTEM_NAME "${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX}"
+
 setenv HYDRA_MODULEPATH ""
-set i = 2014
-while ($i < 2021)
-#for i in {2014..2020}; do
+set i = 2016
+while ($i < 2025)
   if ( -d  /apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX}/modules/${i}a/all ) then
     setenv HYDRA_MODULEPATH /apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX}/modules/${i}a/all:${HYDRA_MODULEPATH}
   endif
@@ -48,26 +36,7 @@ while ($i < 2021)
   @ i++
 end
 
-#Append commercial modules if user belongs to the group
-foreach line ( "`cat /etc/commercial_modules`" )
-  set gro = `echo $line | awk '{print $1}'`
-  set mod = `echo $line | awk '{print $2}'`
-  if ( `id |grep -c $gro` == 1 ) then
-   setenv HYDRA_MODULEPATH ${HYDRA_MODULEPATH}:${mod}
-  endif
-end
-
-if ( -d /etc/modulefiles/vsc ) then
-    setenv HYDRA_MODULEPATH ${HYDRA_MODULEPATH}:/etc/modulefiles/vsc
-endif
-
-setenv MODULEPATH ${HYDRA_MODULEPATH}
-
-setenv LMOD_SYSTEM_NAME "${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX}"
-
-unset line
-unset gro
-unset mod
+setenv MODULEPATH ${HYDRA_MODULEPATH}:/etc/modulefiles/vsc
 unset HYDRA_MODULEPATH
 
 # vim: set ft=csh:
