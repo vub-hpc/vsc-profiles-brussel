@@ -21,8 +21,6 @@ install -m 644 vsc.sh $RPM_BUILD_ROOT/etc/profile.d/
 install -m 644 vsc.csh $RPM_BUILD_ROOT/etc/profile.d/
 install -m 644 vscautokey.sh $RPM_BUILD_ROOT/etc/profile.d/
 install -m 644 vscautokey.csh $RPM_BUILD_ROOT/etc/profile.d/
-install -m 644 modulepaths-sh $RPM_BUILD_ROOT/etc/profile.d/
-install -m 644 modulepaths-csh $RPM_BUILD_ROOT/etc/profile.d/
 
 %clean
 rm -rf %{buildroot}
@@ -33,8 +31,6 @@ rm -rf %{buildroot}
 /etc/profile.d/vsc.csh
 /etc/profile.d/vscautokey.sh
 /etc/profile.d/vscautokey.csh
-/etc/profile.d/modulepaths-sh
-/etc/profile.d/modulepaths-csh
 
 
 %changelog
