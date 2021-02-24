@@ -1,29 +1,5 @@
 eval `/usr/bin/vsc_env csh`
 
-if (! $?VSC_OS_LOCAL) then
-setenv VSC_OS_LOCAL CO7
-endif
-
-if (! $?VSC_ARCH_LOCAL) then
-
-    if ( { grep -q 'CPU.E5-2680.v2' /proc/cpuinfo } ) then
-      setenv VSC_ARCH_LOCAL ivybridge
-      setenv VSC_ARCH_SUFFIX -ib
-    else if ( { grep -q 'CPU.E5-[0-9]\+.v3' /proc/cpuinfo } ) then
-      setenv VSC_ARCH_LOCAL haswell
-      setenv VSC_ARCH_SUFFIX -ib
-    else if ( { grep -q 'CPU.E[57]-[0-9]\+.v4' /proc/cpuinfo } ) then
-      setenv VSC_ARCH_LOCAL broadwell
-      setenv VSC_ARCH_SUFFIX ''
-    else if ( { grep -q 'Gold \(6148\|6126\)' /proc/cpuinfo } ) then
-      setenv VSC_ARCH_LOCAL skylake
-      setenv VSC_ARCH_SUFFIX ''
-    else
-      setenv VSC_ARCH_LOCAL ''
-      setenv VSC_ARCH_SUFFIX ''
-    endif
-endif
-
 setenv LMOD_SYSTEM_NAME "${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX}"
 
 setenv HYDRA_MODULEPATH ""
