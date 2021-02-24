@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.30
+Version: 1.31
 Release: 1
 License: GPL
 Group: Applications/System
@@ -34,6 +34,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed Feb 24 2021 Ward Poelmans <ward.poelmans@vub.be>
+- Drop VSC_OS and VSC_ARCH logic in favor of vsc-config
 * Fri Oct 02 2020 Ward Poelmans <ward.poelmans@vub.be>
 - Drop NetID support
 * Tue Sep 22 2020 Ward Poelmans <ward.poelmans@vub.be>
