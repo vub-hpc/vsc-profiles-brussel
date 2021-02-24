@@ -1,12 +1,13 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.31
-Release: 1
+Version: 1.32
+Release: 2
 License: GPL
 Group: Applications/System
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
+Requires: python-vsc-config
 %description
 Brussel VSC profiles files
 
