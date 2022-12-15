@@ -1,7 +1,7 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.32
-Release: 2
+Version: 1.33
+Release: 1
 License: GPL
 Group: Applications/System
 Source: %{name}-%{version}.tar.gz
@@ -22,6 +22,7 @@ install -m 644 vsc.sh $RPM_BUILD_ROOT/etc/profile.d/
 install -m 644 vsc.csh $RPM_BUILD_ROOT/etc/profile.d/
 install -m 644 vscautokey.sh $RPM_BUILD_ROOT/etc/profile.d/
 install -m 644 vscautokey.csh $RPM_BUILD_ROOT/etc/profile.d/
+install -m 644 vscprompt.sh $RPM_BUILD_ROOT/etc/profile.d/
 
 %clean
 rm -rf %{buildroot}
@@ -35,6 +36,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Dec 15 2022 Samuel Moors <samuel.moors@vub.be>
+- Customize prompt for VSC accounts
 * Wed Feb 24 2021 Ward Poelmans <ward.poelmans@vub.be>
 - Drop VSC_OS and VSC_ARCH logic in favor of vsc-config
 * Fri Oct 02 2020 Ward Poelmans <ward.poelmans@vub.be>
