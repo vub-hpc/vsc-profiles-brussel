@@ -33,6 +33,7 @@ rm -rf %{buildroot}
 /etc/profile.d/vsc.csh
 /etc/profile.d/vscautokey.sh
 /etc/profile.d/vscautokey.csh
+/etc/profile.d/vscprompt.sh
 
 
 %changelog
