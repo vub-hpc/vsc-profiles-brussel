@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# script for testing the fixpathvsc function in vscprompt.sh
+# @author: Samuel Moors (Vrije Universiteit Brussel)
+
 source vscprompt.sh
 
 test_string_equal(){
