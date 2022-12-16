@@ -27,6 +27,10 @@ origpaths=(
     /theia/scratch/brussel/100/vsc10009
     /scratch/brussel/vo/000/bvo00005
     /scratch/brussel/vo/000/bvo00005/vsc10009
+    /apps/brussel/CO7/skylake
+    /vscmnt/brussel_pixiu_apps/_apps_brussel/CO7/skylake
+    /fake/user/brussel/100/vsc10009
+    /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
 )
 
 expectedpaths=(
@@ -42,6 +46,10 @@ expectedpaths=(
     '$VSC_SCRATCH'
     '$VSC_SCRATCH_VO'
     '$VSC_SCRATCH_VO_USER'
+    /apps/brussel/CO7/skylake
+    /vscmnt/brussel_pixiu_apps/_apps_brussel/CO7/skylake
+    /fake/user/brussel/100/vsc10009
+    /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
 )
 
 for (( i=0; i<=$((${#origpaths[@]}-1)); i++ )); do
