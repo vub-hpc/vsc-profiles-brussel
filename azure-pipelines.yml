@@ -1,0 +1,12 @@
+trigger:
+- master
+
+pool:
+  vmImage: "ubuntu-latest"
+
+jobs:
+- job: TestVSCPaths
+  displayName: 'Test VSC path function'
+  steps:
+  - script: './files/test_fixpathvsc.sh'
+    displayName: 'run test_fixpathvsc.sh'
