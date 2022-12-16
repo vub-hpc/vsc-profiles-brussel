@@ -6,12 +6,12 @@
 source "$( dirname -- "${BASH_SOURCE[0]}" )/vscprompt.sh"
 
 test_string_equal(){
-    echo -n "TEST: [$1] equal to [$2] ..." >>/dev/stderr
+    echo -n "TEST: [$1] equal to [$2] ..." >&2
     if [ "$1" == "$2" ];then
-        echo success>>/dev/stderr
+        echo success >&2
         echo 0
     else
-        echo failed>>/dev/stderr
+        echo failed >&2
         echo 1
     fi
 }
