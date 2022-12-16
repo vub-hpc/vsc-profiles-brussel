@@ -19,6 +19,10 @@ test_string_equal(){
 nfailed=0
 ntotal=0
 
+# overwrite environment variables for test
+USER=vsc10009
+VSC_VO=bvo00005
+
 origpaths=(
     /user/brussel/100/vsc10009
     /vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
@@ -59,8 +63,10 @@ expectedpaths=(
 
 for (( i=0; i<=$((${#origpaths[@]}-1)); i++ )); do
     orig=${origpaths[i]}
+    # overwrite PWD environment variable for test
+    PWD=$orig
     expected=${expectedpaths[i]}
-    result=$(fixpathvsc vsc10009 bvo00005 "$orig")
+    result=$(fixpathvsc)
     let nfailed+=$(test_string_equal "$result" "$expected")
     let ntotal+=1
 done
