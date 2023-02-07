@@ -1,13 +1,18 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.33
+Version: 1.34
 Release: 1
 License: GPL
 Group: Applications/System
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
+%if 0%{?rhel} < 8
 Requires: python-vsc-config
+%else
+Requires: python3-vsc-config
+%endif
+
 %description
 Brussel VSC profiles files
 
@@ -37,6 +42,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Tue Feb 07 2023 Ward Poelmans <ward.poelmans@vub.be>
+- Prep for el8
 * Thu Dec 15 2022 Samuel Moors <samuel.moors@vub.be>
 - Customize prompt for VSC accounts
 * Wed Feb 24 2021 Ward Poelmans <ward.poelmans@vub.be>
