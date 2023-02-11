@@ -16,12 +16,32 @@ test_string_equal(){
     fi
 }
 
-nfailed=0
-ntotal=0
+NFAILED=0
+NTOTAL=0
 
-# overwrite environment variables for test
+run_tests(){
+    echo -- Testing user $USER $VSC_INSTITUTE
+    for (( i=0; i<=$((${#origpaths[@]}-1)); i++ )); do
+        orig=${origpaths[i]}
+        # overwrite PWD environment variable for test
+        PWD=$orig
+        expected=${expectedpaths[i]}
+        result=$(fixpathvsc)
+        let NFAILED+=$(test_string_equal "$result" "$expected")
+        let NTOTAL+=1
+    done
+}
+
+# overwrite environment variables for brussel user
 USER=vsc10009
-VSC_VO=bvo00005
+VSC_INSTITUTE=brussel
+VSC_HOME=/user/brussel/100/vsc10009
+VSC_SCRATCH=/scratch/brussel/100/vsc10009
+VSC_SCRATCH_VO=/scratch/brussel/vo/000/bvo00005
+VSC_SCRATCH_VO_USER=$VSC_SCRATCH_VO/$USER
+VSC_DATA=/data/brussel/100/vsc10009
+VSC_DATA_VO=/data/brussel/vo/000/bvo00005
+VSC_DATA_VO_USER=$VSC_DATA_VO/$USER
 
 origpaths=(
     /user/brussel/100/vsc10009
@@ -61,20 +81,107 @@ expectedpaths=(
     /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
 )
 
-for (( i=0; i<=$((${#origpaths[@]}-1)); i++ )); do
-    orig=${origpaths[i]}
-    # overwrite PWD environment variable for test
-    PWD=$orig
-    expected=${expectedpaths[i]}
-    result=$(fixpathvsc)
-    let nfailed+=$(test_string_equal "$result" "$expected")
-    let ntotal+=1
-done
+run_tests
+
+# overwrite environment variables for antwerpen user
+USER=vsc20133
+VSC_INSTITUTE=antwerpen
+VSC_HOME=/user/antwerpen/201/vsc20133
+VSC_SCRATCH=/scratch/brussel/vo/000/bvo00002/vsc20133
+VSC_SCRATCH_VO=/scratch/brussel/vo/000/bvo00002
+VSC_SCRATCH_VO_USER=$VSC_SCRATCH_VO/$USER
+VSC_DATA=/data/antwerpen/201/vsc20133
+VSC_DATA_VO=/does/not/exist
+VSC_DATA_VO_USER=/does/not/exist
+
+origpaths=(
+    '/user/antwerpen/201/vsc20133'
+    '/vscmnt/antwerpen_storage_home/_user_antwerpen/201/vsc20133'
+    '/data/antwerpen/201/vsc20133'
+    '/vscmnt/antwerpen_storage_data/_data_antwerpen/201/vsc20133'
+    '/scratch/brussel/vo/000/bvo00002/vsc20133'
+    '/theia/scratch/brussel/vo/000/bvo00002/vsc20133'
+)
+
+expectedpaths=(
+    '$VSC_HOME'
+    '$VSC_HOME'
+    '$VSC_DATA'
+    '$VSC_DATA'
+    '$VSC_SCRATCH_VO_USER'
+    '$VSC_SCRATCH_VO_USER'
+)
+
+run_tests
+
+# overwrite environment variables for gent user
+USER=vsc40002
+VSC_INSTITUTE=gent
+VSC_HOME=/user/gent/400/vsc40002
+VSC_SCRATCH=/scratch/brussel/vo/000/bvo00003/vsc40002
+VSC_SCRATCH_VO=/scratch/brussel/vo/000/bvo00003
+VSC_SCRATCH_VO_USER=$VSC_SCRATCH_VO/$USER
+VSC_DATA=/data/gent/400/vsc40002
+VSC_DATA_VO=/data/gent/vo/000/gvo00002
+VSC_DATA_VO_USER=$VSC_DATA_VO/$USER
+
+origpaths=(
+    '/user/gent/400/vsc40002'
+    '/vscmnt/gent_kyukon_home/_kyukon_home_gent/400/vsc40002'
+    '/data/gent/400/vsc40002'
+    '/data/gent/vo/000/gvo00002/vsc40002'
+    '/vscmnt/gent_kyukon_data/_kyukon_data_gent/vo/000/gvo00002/vsc40002'
+    '/scratch/brussel/vo/000/bvo00003/vsc40002'
+    '/theia/scratch/brussel/vo/000/bvo00003/vsc40002'
+)
+
+expectedpaths=(
+    '$VSC_HOME'
+    '$VSC_HOME'
+    '$VSC_DATA'
+    '$VSC_DATA_VO_USER'
+    '$VSC_DATA_VO_USER'
+    '$VSC_SCRATCH_VO_USER'
+    '$VSC_SCRATCH_VO_USER'
+)
+
+run_tests
+
+# overwrite environment variables for leuven user
+USER=vsc33716
+VSC_INSTITUTE=leuven
+VSC_HOME=/user/leuven/337/vsc33716
+VSC_SCRATCH=/scratch/brussel/vo/000/bvo00004/vsc33716
+VSC_SCRATCH_VO=/scratch/brussel/vo/000/bvo00004
+VSC_SCRATCH_VO_USER=$VSC_SCRATCH_VO/$USER
+VSC_DATA=/data/leuven/337/vsc33716
+VSC_DATA_VO=/does/not/exist
+VSC_DATA_VO_USER=/does/not/exist
+
+origpaths=(
+    '/user/leuven/337/vsc33716'
+    '/vscmnt/leuven_icts/_user_leuven/337/vsc33716'
+    '/data/leuven/337/vsc33716'
+    '/vscmnt/leuven_icts/_data_leuven/337/vsc33716'
+    '/scratch/brussel/vo/000/bvo00004/vsc33716'
+    '/theia/scratch/brussel/vo/000/bvo00004/vsc33716'
+)
+
+expectedpaths=(
+    '$VSC_HOME'
+    '$VSC_HOME'
+    '$VSC_DATA'
+    '$VSC_DATA'
+    '$VSC_SCRATCH_VO_USER'
+    '$VSC_SCRATCH_VO_USER'
+)
+
+run_tests
 
 echo
 echo SUMMARY
 echo -------
-echo PASSED: $(( ntotal - nfailed ))
-echo FAILED: $nfailed
+echo PASSED: $(( NTOTAL - NFAILED ))
+echo FAILED: $NFAILED
 
-exit $nfailed
+exit $NFAILED
