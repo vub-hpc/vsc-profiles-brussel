@@ -16,6 +16,8 @@ test_string_equal(){
     fi
 }
 
+VSC_INSTITUTE_LOCAL=brussel
+
 NFAILED=0
 NTOTAL=0
 
