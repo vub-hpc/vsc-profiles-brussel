@@ -24,7 +24,11 @@ fixpathvsc(){
     elif [[ $path =~ ^"$VSC_DATA"(.*)$ ]]; then
         path=\$VSC_DATA${BASH_REMATCH[1]}
     elif [[ $path =~ ^"$VSC_SCRATCH_VO_USER"(.*)$ ]]; then
-        path=\$VSC_SCRATCH_VO_USER${BASH_REMATCH[1]}
+        if [ $VSC_SCRATCH_VO_USER == $VSC_SCRATCH ];then
+            path=\$VSC_SCRATCH${BASH_REMATCH[1]}
+        else
+            path=\$VSC_SCRATCH_VO_USER${BASH_REMATCH[1]}
+        fi
     elif [[ $path =~ ^"$VSC_SCRATCH_VO"(.*)$ ]]; then
         path=\$VSC_SCRATCH_VO${BASH_REMATCH[1]}
     elif [[ $path =~ ^"$VSC_SCRATCH"(.*)$ ]]; then
