@@ -110,8 +110,8 @@ expectedpaths=(
     '$VSC_HOME'
     '$VSC_DATA'
     '$VSC_DATA'
-    '$VSC_SCRATCH_VO_USER'
-    '$VSC_SCRATCH_VO_USER'
+    '$VSC_SCRATCH'
+    '$VSC_SCRATCH'
 )
 
 run_tests
@@ -143,8 +143,8 @@ expectedpaths=(
     '$VSC_DATA'
     '$VSC_DATA_VO_USER'
     '$VSC_DATA_VO_USER'
-    '$VSC_SCRATCH_VO_USER'
-    '$VSC_SCRATCH_VO_USER'
+    '$VSC_SCRATCH'
+    '$VSC_SCRATCH'
 )
 
 run_tests
@@ -174,8 +174,8 @@ expectedpaths=(
     '$VSC_HOME'
     '$VSC_DATA'
     '$VSC_DATA'
-    '$VSC_SCRATCH_VO_USER'
-    '$VSC_SCRATCH_VO_USER'
+    '$VSC_SCRATCH'
+    '$VSC_SCRATCH'
 )
 
 run_tests
