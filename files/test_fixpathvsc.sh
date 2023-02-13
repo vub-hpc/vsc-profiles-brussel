@@ -8,10 +8,10 @@ source "$( dirname -- "${BASH_SOURCE[0]}" )/vscprompt.sh"
 test_string_equal(){
     echo -n "TEST: [$1] equal to [$2] ..." >&2
     if [ "$1" == "$2" ];then
-        echo success >&2
+        echo -e '\E[32msuccess\E[39;49m' >&2
         echo 0
     else
-        echo failed >&2
+        echo -e '\E[31mfailed\E[39;49m' >&2
         echo 1
     fi
 }

@@ -1,44 +1,20 @@
-fixpathbrussel(){
-    if [[ $path =~ ^/vscmnt/brussel_pixiu_home/_user_brussel/(.*)$ ]]; then
-        path=/user/$VSC_INSTITUTE/${BASH_REMATCH[1]}
-    elif [[ $path =~ ^/vscmnt/brussel_pixiu_data/_data_brussel/(.*)$ ]]; then
-        path=/data/$VSC_INSTITUTE/${BASH_REMATCH[1]}
-    fi
-}
-
-fixpathgent(){
-    if [[ $path =~ ^/vscmnt/gent_kyukon_home/_kyukon_home_gent/(.*)$ ]]; then
-        path=/user/$VSC_INSTITUTE/${BASH_REMATCH[1]}
-    elif [[ $path =~ ^/vscmnt/gent_kyukon_data/_kyukon_data_gent/(.*)$ ]]; then
-        path=/data/$VSC_INSTITUTE/${BASH_REMATCH[1]}
-    fi
-}
-
-fixpathantwerpen(){
-    if [[ $path =~ ^/vscmnt/antwerpen_storage_home/_user_antwerpen/(.*)$ ]]; then
-        path=/user/$VSC_INSTITUTE/${BASH_REMATCH[1]}
-    elif [[ $path =~ ^/vscmnt/antwerpen_storage_data/_data_antwerpen/(.*)$ ]]; then
-        path=/data/$VSC_INSTITUTE/${BASH_REMATCH[1]}
-    fi
-}
-
-fixpathleuven(){
-    if [[ $path =~ ^/vscmnt/leuven_icts/_user_leuven/(.*)$ ]]; then
-        path=/user/$VSC_INSTITUTE/${BASH_REMATCH[1]}
-    elif [[ $path =~ ^/vscmnt/leuven_icts/_data_leuven/(.*)$ ]]; then
-        path=/data/$VSC_INSTITUTE/${BASH_REMATCH[1]}
-    fi
-}
-
 fixpathvsc(){
     path=$PWD
 
-    if [[ $path =~ ^/theia/scratch/brussel/(.*)$ ]]; then
+    regex_scratch='^/theia/scratch/brussel/(.*)$'
+    regex_home='^/vscmnt/'${VSC_INSTITUTE}'_[^/]+/_[^/]*(user|home)_'${VSC_INSTITUTE}'/(.*)$'
+    regex_data='^/vscmnt/'${VSC_INSTITUTE}'_[^/]+/_[^/]*data_'${VSC_INSTITUTE}'/(.*)$'
+
+    # convert real paths to canonical paths
+    if [[ $path =~ $regex_scratch ]]; then
         path=/scratch/$VSC_INSTITUTE_LOCAL/${BASH_REMATCH[1]}
-    else
-        fixpath$VSC_INSTITUTE
+    elif [[ $path =~ $regex_home ]]; then
+        path=/user/$VSC_INSTITUTE/${BASH_REMATCH[2]}
+    elif [[ $path =~ $regex_data ]]; then
+        path=/data/$VSC_INSTITUTE/${BASH_REMATCH[1]}
     fi
 
+    # convert canonical paths to environment variable
     if [[ $path =~ ^"$VSC_HOME"(.*)$ ]]; then
         path=\$VSC_HOME${BASH_REMATCH[1]}
     elif [[ $path =~ ^"$VSC_DATA_VO_USER"(.*)$ ]]; then
