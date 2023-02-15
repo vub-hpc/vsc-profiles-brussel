@@ -23,6 +23,10 @@ NTOTAL=0
 
 run_tests(){
     echo -- Testing user $USER $VSC_INSTITUTE
+    if [ ${#origpaths[@]} -ne ${#expectedpaths[@]} ]; then
+        echo 'ERROR: origpaths and expectedpaths do not have the same length'
+        exit 1
+    fi
     for (( i=0; i<=$((${#origpaths[@]}-1)); i++ )); do
         orig=${origpaths[i]}
         # overwrite PWD environment variable for test
@@ -131,6 +135,7 @@ origpaths=(
     '/user/gent/400/vsc40002'
     '/vscmnt/gent_kyukon_home/_kyukon_home_gent/400/vsc40002'
     '/data/gent/400/vsc40002'
+    '/vscmnt/gent_kyukon_data/_kyukon_data_gent/400/vsc40002'
     '/data/gent/vo/000/gvo00002/vsc40002'
     '/vscmnt/gent_kyukon_data/_kyukon_data_gent/vo/000/gvo00002/vsc40002'
     '/scratch/brussel/vo/000/bvo00003/vsc40002'
@@ -140,6 +145,7 @@ origpaths=(
 expectedpaths=(
     '$VSC_HOME'
     '$VSC_HOME'
+    '$VSC_DATA'
     '$VSC_DATA'
     '$VSC_DATA_VO_USER'
     '$VSC_DATA_VO_USER'
