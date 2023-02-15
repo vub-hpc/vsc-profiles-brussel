@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.36
+Version: 1.37
 Release: 1
 License: GPL
 Group: Applications/System
@@ -42,6 +42,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed Feb 15 2023 Samuel Moors <samuel.moors@vub.be>
+- Add test case for vsc prompt
 * Mon Feb 13 2023 Samuel Moors <samuel.moors@vub.be>
 - Improve prompt: replace VSC_SCRATCH_VO_USER with VSC_SCRATCH if equal
 * Sat Feb 11 2023 Samuel Moors <samuel.moors@vub.be>
