@@ -1,0 +1,15 @@
+name: Run tests
+on: [push, pull_request]
+
+jobs:
+  rpmbuild:
+      runs-on: ubuntu-latest
+      container:
+        image: rockylinux:8
+
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run tests
+        run: ./tests/test_fixpathvsc.sh

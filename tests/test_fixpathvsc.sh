@@ -3,7 +3,7 @@
 # script for testing the fixpathvsc function in vscprompt.sh
 # @author: Samuel Moors (Vrije Universiteit Brussel)
 
-source "$( dirname -- "${BASH_SOURCE[0]}" )/vscprompt.sh"
+source "$( dirname -- "${BASH_SOURCE[0]}" )/../files/vscprompt.sh"
 
 test_string_equal(){
     echo -n "TEST: [$1] equal to [$2] ..." >&2
