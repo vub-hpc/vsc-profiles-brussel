@@ -17,19 +17,20 @@ fixpathvsc(){
     # convert canonical paths to environment variable
     if [[ $path =~ ^"$VSC_HOME"(.*)$ ]]; then
         path=\$VSC_HOME${BASH_REMATCH[1]}
-    elif [[ $path =~ ^"$VSC_DATA_VO_USER"(.*)$ ]]; then
+    elif [ "x$VSC_DATA_VO_USER" != "x" ] && [[ $path =~ ^"$VSC_DATA_VO_USER"(.*)$ ]]; then
         path=\$VSC_DATA_VO_USER${BASH_REMATCH[1]}
-    elif [[ $path =~ ^"$VSC_DATA_VO"(.*)$ ]]; then
+    elif [ "x$VSC_DATA_VO" != "x" ] && [[ $path =~ ^"$VSC_DATA_VO"(.*)$ ]]; then
         path=\$VSC_DATA_VO${BASH_REMATCH[1]}
     elif [[ $path =~ ^"$VSC_DATA"(.*)$ ]]; then
         path=\$VSC_DATA${BASH_REMATCH[1]}
-    elif [[ $path =~ ^"$VSC_SCRATCH_VO_USER"(.*)$ ]]; then
+    elif [ "x$VSC_SCRATCH_VO_USER" != "x" ] && [[ $path =~ ^"$VSC_SCRATCH_VO_USER"(.*)$ ]]; then
+        # personal scratch might be located inside a generic VO
         if [ $VSC_SCRATCH_VO_USER == $VSC_SCRATCH ];then
             path=\$VSC_SCRATCH${BASH_REMATCH[1]}
         else
             path=\$VSC_SCRATCH_VO_USER${BASH_REMATCH[1]}
         fi
-    elif [[ $path =~ ^"$VSC_SCRATCH_VO"(.*)$ ]]; then
+    elif [ "x$VSC_SCRATCH_VO" != "x" ] && [[ $path =~ ^"$VSC_SCRATCH_VO"(.*)$ ]]; then
         path=\$VSC_SCRATCH_VO${BASH_REMATCH[1]}
     elif [[ $path =~ ^"$VSC_SCRATCH"(.*)$ ]]; then
         path=\$VSC_SCRATCH${BASH_REMATCH[1]}
