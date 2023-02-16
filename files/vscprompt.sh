@@ -25,7 +25,7 @@ fixpathvsc(){
         path=\$VSC_DATA${BASH_REMATCH[1]}
     elif [ -n "$VSC_SCRATCH_VO_USER" ] && [[ $path =~ ^"$VSC_SCRATCH_VO_USER"(.*)$ ]]; then
         # personal scratch might be located inside a generic VO
-        if [ $VSC_SCRATCH_VO_USER == $VSC_SCRATCH ];then
+        if [ "$VSC_SCRATCH_VO_USER" == "$VSC_SCRATCH" ];then
             path=\$VSC_SCRATCH${BASH_REMATCH[1]}
         else
             path=\$VSC_SCRATCH_VO_USER${BASH_REMATCH[1]}
@@ -36,7 +36,7 @@ fixpathvsc(){
         path=\$VSC_SCRATCH${BASH_REMATCH[1]}
     fi
 
-    echo $path
+    echo "$path"
 }
 
 if [ "${USER:0:3}" == "vsc" ]; then

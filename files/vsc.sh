@@ -1,4 +1,4 @@
-eval $(/usr/bin/vsc_env bash)
+eval "$(/usr/bin/vsc_env bash)"
 
 export LMOD_SYSTEM_NAME="${VSC_INSTITUTE_CLUSTER}-${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}"
 
