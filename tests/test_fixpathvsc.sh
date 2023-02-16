@@ -89,6 +89,49 @@ expectedpaths=(
 
 run_tests
 
+# overwrite environment variables for brussel user without VO
+USER=vsc10009
+VSC_INSTITUTE=brussel
+VSC_HOME=/user/brussel/100/vsc10009
+VSC_SCRATCH=/scratch/brussel/100/vsc10009
+VSC_SCRATCH_VO=""
+VSC_SCRATCH_VO_USER=""
+VSC_DATA=/data/brussel/100/vsc10009
+VSC_DATA_VO=""
+VSC_DATA_VO_USER=""
+
+origpaths=(
+    /user/brussel/100/vsc10009
+    /vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
+    /user/brussel/100/vsc10009/testpath
+    "/user/brussel/100/vsc10009/testpath with spaces"
+    /data/brussel/100/vsc10009
+    /vscmnt/brussel_pixiu_data/_data_brussel/100/vsc10009
+    /scratch/brussel/100/vsc10009
+    /theia/scratch/brussel/100/vsc10009
+    /apps/brussel/CO7/skylake
+    /vscmnt/brussel_pixiu_apps/_apps_brussel/CO7/skylake
+    /fake/user/brussel/100/vsc10009
+    /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
+)
+
+expectedpaths=(
+    '$VSC_HOME'
+    '$VSC_HOME'
+    '$VSC_HOME/testpath'
+    '$VSC_HOME/testpath with spaces'
+    '$VSC_DATA'
+    '$VSC_DATA'
+    '$VSC_SCRATCH'
+    '$VSC_SCRATCH'
+    /apps/brussel/CO7/skylake
+    /vscmnt/brussel_pixiu_apps/_apps_brussel/CO7/skylake
+    /fake/user/brussel/100/vsc10009
+    /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
+)
+
+run_tests
+
 # overwrite environment variables for antwerpen user
 USER=vsc20133
 VSC_INSTITUTE=antwerpen
