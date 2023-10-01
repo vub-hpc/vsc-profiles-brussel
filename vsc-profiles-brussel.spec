@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.39
+Version: 1.40
 Release: 1
 License: GPL
 Group: Applications/System
@@ -42,6 +42,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Fri Sep 29 2023 Alex Domingo <alex.domingo.toro@vub.be>
+- Avoid spurious extra colon in MODULEPATH
 * Mon Mar 27 2023 Samuel Moors <samuel.moors@vub.be>
 - Restrict MODULEPATH to the more recent ones
 * Wed Feb 16 2023 Alex Domingo <alex.domingo.toro@vub.be>
