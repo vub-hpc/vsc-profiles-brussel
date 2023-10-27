@@ -1,7 +1,7 @@
 fixpathvsc(){
     path=$PWD
 
-    regex_scratch='^/theia/scratch/brussel/(.*)$'
+    regex_scratch='^/[^/]+/scratch/brussel/(.*)$'
     regex_home='^/vscmnt/'${VSC_INSTITUTE}'_[^/]+/_[^/]*(user|home)_'${VSC_INSTITUTE}'/(.*)$'
     regex_data='^/vscmnt/'${VSC_INSTITUTE}'_[^/]+/_[^/]*data_'${VSC_INSTITUTE}'/(.*)$'
 
