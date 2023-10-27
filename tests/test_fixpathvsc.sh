@@ -66,6 +66,7 @@ origpaths=(
     /vscmnt/brussel_pixiu_apps/_apps_brussel/CO7/skylake
     /fake/user/brussel/100/vsc10009
     /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
+    /rhea/scratch/brussel/100/vsc10009
 )
 
 expectedpaths=(
@@ -85,6 +86,7 @@ expectedpaths=(
     /vscmnt/brussel_pixiu_apps/_apps_brussel/CO7/skylake
     /fake/user/brussel/100/vsc10009
     /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
+    '$VSC_SCRATCH'
 )
 
 run_tests
@@ -113,6 +115,7 @@ origpaths=(
     /vscmnt/brussel_pixiu_apps/_apps_brussel/CO7/skylake
     /fake/user/brussel/100/vsc10009
     /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
+    /rhea/scratch/brussel/100/vsc10009
 )
 
 expectedpaths=(
@@ -128,6 +131,7 @@ expectedpaths=(
     /vscmnt/brussel_pixiu_apps/_apps_brussel/CO7/skylake
     /fake/user/brussel/100/vsc10009
     /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
+    '$VSC_SCRATCH'
 )
 
 run_tests
@@ -150,6 +154,7 @@ origpaths=(
     '/vscmnt/antwerpen_storage_data/_data_antwerpen/201/vsc20133'
     '/scratch/brussel/vo/000/bvo00002/vsc20133'
     '/theia/scratch/brussel/vo/000/bvo00002/vsc20133'
+    '/rhea/scratch/brussel/vo/000/bvo00002/vsc20133'
 )
 
 expectedpaths=(
@@ -157,6 +162,7 @@ expectedpaths=(
     '$VSC_HOME'
     '$VSC_DATA'
     '$VSC_DATA'
+    '$VSC_SCRATCH'
     '$VSC_SCRATCH'
     '$VSC_SCRATCH'
 )
@@ -183,6 +189,7 @@ origpaths=(
     '/vscmnt/gent_kyukon_data/_kyukon_data_gent/vo/000/gvo00002/vsc40002'
     '/scratch/brussel/vo/000/bvo00003/vsc40002'
     '/theia/scratch/brussel/vo/000/bvo00003/vsc40002'
+    '/rhea/scratch/brussel/vo/000/bvo00003/vsc40002'
 )
 
 expectedpaths=(
@@ -192,6 +199,7 @@ expectedpaths=(
     '$VSC_DATA'
     '$VSC_DATA_VO_USER'
     '$VSC_DATA_VO_USER'
+    '$VSC_SCRATCH'
     '$VSC_SCRATCH'
     '$VSC_SCRATCH'
 )
@@ -216,6 +224,7 @@ origpaths=(
     '/vscmnt/leuven_icts/_data_leuven/337/vsc33716'
     '/scratch/brussel/vo/000/bvo00004/vsc33716'
     '/theia/scratch/brussel/vo/000/bvo00004/vsc33716'
+    '/rhea/scratch/brussel/vo/000/bvo00004/vsc33716'
 )
 
 expectedpaths=(
@@ -223,6 +232,7 @@ expectedpaths=(
     '$VSC_HOME'
     '$VSC_DATA'
     '$VSC_DATA'
+    '$VSC_SCRATCH'
     '$VSC_SCRATCH'
     '$VSC_SCRATCH'
 )
