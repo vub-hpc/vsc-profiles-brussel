@@ -6,12 +6,9 @@ CLUSTER_MODULEPATH="/etc/modulefiles/vsc"
 
 modulesroot="/apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUFFIX:-}/modules"
 
-i=2019
-if [ -d "$modulesroot/${i}b/all" ]; then
-  CLUSTER_MODULEPATH="$modulesroot/${i}b/all:$CLUSTER_MODULEPATH"
-fi
+CLUSTER_MODULEPATH="$modulesroot/system/all:$CLUSTER_MODULEPATH"
 
-for i in {2020..2025}; do
+for i in {2022..2027}; do
   if [ -d "$modulesroot/${i}a/all" ]; then
     CLUSTER_MODULEPATH="$modulesroot/${i}a/all:$CLUSTER_MODULEPATH"
   fi

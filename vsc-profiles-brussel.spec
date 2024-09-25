@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.41
+Version: 1.42
 Release: 1
 License: GPL
 Group: Applications/System
@@ -42,6 +42,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed Sep 25 2024 Samuel Moors <samuel.moors@vub.be>
+- Add system to MODULEPATH
 * Fri Oct 27 2023 Ward Poelmans <ward.poelmans@vub.be>
 - Adjust scratch regex to also support rhea scratch
 * Fri Sep 29 2023 Alex Domingo <alex.domingo.toro@vub.be>
