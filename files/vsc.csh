@@ -9,7 +9,7 @@ set modulesroot = "/apps/brussel/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH_SUF
 set CLUSTER_MODULEPATH = "$modulesroot/system/all:$CLUSTER_MODULEPATH"
 
 set i = 2022
-while ($i <= 2030)
+while ($i <= 2027)
   if ( -d  $modulesroot/${i}a/all ) then
     set CLUSTER_MODULEPATH = "$modulesroot/${i}a/all:${CLUSTER_MODULEPATH}"
   endif
