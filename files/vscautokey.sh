@@ -1,7 +1,7 @@
 minuid=2500000
 myid=$(id -u)
 if [ "${myid:-0}" -ge "$minuid" ]; then
-    if ! [ -a ~/.ssh/id_rsa ]; then
+    if ! [ -e ~/.ssh/id_rsa ]; then
         if [ -w ~ ]; then
             mkdir -p ~/.ssh
             ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -q -N ""
