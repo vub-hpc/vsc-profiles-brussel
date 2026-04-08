@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.42
+Version: 1.43
 Release: 1
 License: GPL
 Group: Applications/System
@@ -42,6 +42,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed Apr 08 2026 Alex Domingo <alex.domingo.toro@vub.be>
+- Improve reliability of vscautokey scripts
 * Wed Sep 25 2024 Samuel Moors <samuel.moors@vub.be>
 - Add system to MODULEPATH
 * Fri Oct 27 2023 Ward Poelmans <ward.poelmans@vub.be>
