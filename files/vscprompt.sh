@@ -15,7 +15,11 @@ fixpathvsc(){
     fi
 
     # convert canonical paths to environment variable
-    if [[ $path =~ ^"$VSC_HOME"(.*)$ ]]; then
+    if [[ $path =~ ^/user/sofia/$USER(.*)$ ]]; then
+        path=\$HOME${BASH_REMATCH[1]}
+    elif [ -n "$VSC_SCRATCH_PROJECTS_BASE" ] && [[ $path =~ ^"$VSC_SCRATCH_PROJECTS_BASE"(.*)$ ]]; then
+        path=\$VSC_SCRATCH_PROJECTS_BASE${BASH_REMATCH[1]}
+    elif [[ $path =~ ^"$VSC_HOME"(.*)$ ]]; then
         path=\$VSC_HOME${BASH_REMATCH[1]}
     elif [ -n "$VSC_DATA_VO_USER" ] && [[ $path =~ ^"$VSC_DATA_VO_USER"(.*)$ ]]; then
         path=\$VSC_DATA_VO_USER${BASH_REMATCH[1]}
