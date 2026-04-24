@@ -43,6 +43,7 @@ USER=vsc10009
 VSC_INSTITUTE=brussel
 VSC_HOME=/user/brussel/100/vsc10009
 VSC_SCRATCH=/scratch/brussel/100/vsc10009
+VSC_SCRATCH_PROJECTS_BASE=/sofia/scratch/projects
 VSC_SCRATCH_VO=/scratch/brussel/vo/000/bvo00005
 VSC_SCRATCH_VO_USER=$VSC_SCRATCH_VO/$USER
 VSC_DATA=/data/brussel/100/vsc10009
@@ -67,6 +68,11 @@ origpaths=(
     /fake/user/brussel/100/vsc10009
     /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
     /rhea/scratch/brussel/100/vsc10009
+    /user/sofia/vsc10009
+    /user/sofia/vsc10009/testpath
+    /sofia/scratch/projects
+    /sofia/scratch/projects/someproject
+    /sofia/scratch/pilot/badmin
 )
 
 expectedpaths=(
@@ -87,6 +93,11 @@ expectedpaths=(
     /fake/user/brussel/100/vsc10009
     /fake/vscmnt/brussel_pixiu_home/_user_brussel/100/vsc10009
     '$VSC_SCRATCH'
+    '$HOME'
+    '$HOME/testpath'
+    '$VSC_SCRATCH_PROJECTS_BASE'
+    '$VSC_SCRATCH_PROJECTS_BASE/someproject'
+    /sofia/scratch/pilot/badmin
 )
 
 run_tests
