@@ -12,13 +12,12 @@ modulesroot="/apps/${modroot_subdir}/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VSC_ARCH
 
 CLUSTER_MODULEPATH="$modulesroot/system/all"
 
-for i in {2022..2027}; do
-  if [ -d "$modulesroot/${i}a/all" ]; then
-    CLUSTER_MODULEPATH="$modulesroot/${i}a/all:$CLUSTER_MODULEPATH"
-  fi
-  if [ -d "$modulesroot/${i}b/all" ]; then
-    CLUSTER_MODULEPATH="$modulesroot/${i}b/all:$CLUSTER_MODULEPATH"
-  fi
+for year in {2022..2030}; do
+  for suffix in a b .1 .2 .3; do
+    if [ -d "$modulesroot/${year}${suffix}/all" ]; then
+      CLUSTER_MODULEPATH="$modulesroot/${year}${suffix}/all:$CLUSTER_MODULEPATH"
+    fi
+  done
 done
 
 if [ -d "/etc/modulefiles/vsc" ]; then
