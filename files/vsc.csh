@@ -12,15 +12,24 @@ set modulesroot = "/apps/${modroot_subdir}/${VSC_OS_LOCAL}/${VSC_ARCH_LOCAL}${VS
 
 set CLUSTER_MODULEPATH = "$modulesroot/system/all"
 
-set i = 2022
-while ($i <= 2027)
-  if ( -d  $modulesroot/${i}a/all ) then
-    set CLUSTER_MODULEPATH = "$modulesroot/${i}a/all:${CLUSTER_MODULEPATH}"
+set year = 2022
+while ($year <= 2030)
+  if ( -d  $modulesroot/${year}a/all ) then
+    set CLUSTER_MODULEPATH = "$modulesroot/${year}a/all:${CLUSTER_MODULEPATH}"
   endif
-  if ( -d  $modulesroot/${i}b/all ) then
-    set CLUSTER_MODULEPATH = "$modulesroot/${i}b/all:${CLUSTER_MODULEPATH}"
+  if ( -d  $modulesroot/${year}b/all ) then
+    set CLUSTER_MODULEPATH = "$modulesroot/${year}b/all:${CLUSTER_MODULEPATH}"
   endif
-  @ i++
+  if ( -d  $modulesroot/${year}.1/all ) then
+    set CLUSTER_MODULEPATH = "$modulesroot/${year}.1/all:${CLUSTER_MODULEPATH}"
+  endif
+  if ( -d  $modulesroot/${year}.2/all ) then
+    set CLUSTER_MODULEPATH = "$modulesroot/${year}.2/all:${CLUSTER_MODULEPATH}"
+  endif
+  if ( -d  $modulesroot/${year}.3/all ) then
+    set CLUSTER_MODULEPATH = "$modulesroot/${year}.3/all:${CLUSTER_MODULEPATH}"
+  endif
+  @ year++
 end
 
 if (-d "/etc/modulefiles/vsc") then

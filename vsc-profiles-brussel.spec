@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.46
+Version: 1.47
 Release: 1
 License: GPL
 Group: Applications/System
@@ -42,6 +42,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Fri Oct 09 2026 Alex Domingo <alex.domingo.toro@vub.be>
+- Update MODULEPATH with paths to new toolchains with year.%d format
 * Thu Apr 23 2026 Samuel Moors <samuel.moors@vub.be>
 - Update vsc prompt for sofia
 * Mon Apr 20 2026 Alex Domingo <alex.domingo.toro@vub.be>
