@@ -36,6 +36,10 @@ if (-d "/etc/modulefiles/vsc") then
     setenv CLUSTER_MODULEPATH "${CLUSTER_MODULEPATH}:/etc/modulefiles/vsc"
 endif
 
+if (-d "/etc/modulefiles/eessi") then
+    setenv CLUSTER_MODULEPATH "${CLUSTER_MODULEPATH}:/etc/modulefiles/eessi"
+endif
+
 setenv MODULEPATH "${CLUSTER_MODULEPATH}"
 
 unset CLUSTER_MODULEPATH

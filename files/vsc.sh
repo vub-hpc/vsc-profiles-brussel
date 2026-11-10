@@ -24,6 +24,10 @@ if [ -d "/etc/modulefiles/vsc" ]; then
     CLUSTER_MODULEPATH="$CLUSTER_MODULEPATH:/etc/modulefiles/vsc"
 fi
 
+if [ -d "/etc/modulefiles/eessi" ]; then
+    CLUSTER_MODULEPATH="$CLUSTER_MODULEPATH:/etc/modulefiles/eessi"
+fi
+
 export MODULEPATH="$CLUSTER_MODULEPATH"
 
 unset CLUSTER_MODULEPATH

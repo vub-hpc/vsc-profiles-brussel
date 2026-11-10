@@ -1,6 +1,6 @@
 Summary: brussel vsc profiles files
 Name: vsc-profiles-brussel
-Version: 1.47
+Version: 1.48
 Release: 1
 License: GPL
 Group: Applications/System
@@ -42,6 +42,8 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Mon Nov 09 2026 Samuel Moors <samuel.moors@vub.be>
+- Add /etc/modulefiles/eessi to MODULEPATH
 * Fri Oct 09 2026 Alex Domingo <alex.domingo.toro@vub.be>
 - Update MODULEPATH with paths to new toolchains with year.%d format
 * Thu Apr 23 2026 Samuel Moors <samuel.moors@vub.be>
